@@ -10,7 +10,7 @@ CREATE TABLE developers
     name    varchar(50),
     surname varchar(50),
     age     int CHECK (Age >= 10),
-    city    varchar(100),
+    location    varchar(100),
     sex     sex,
     PRIMARY KEY (id)
 );
@@ -51,15 +51,6 @@ CREATE TABLE companies
     PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS developers_projects CASCADE;
-CREATE TABLE developers_projects
-(
-    developers_id int,
-    projects_id   int,
-    FOREIGN KEY (developers_id) REFERENCES developers (id),
-    FOREIGN KEY (projects_id) REFERENCES projects (id)
-);
-
 DROP TABLE IF EXISTS skills CASCADE;
 CREATE TABLE skills
 (
@@ -68,6 +59,15 @@ CREATE TABLE skills
     level        level,
     FOREIGN KEY (languages_id) REFERENCES languages (id),
     PRIMARY KEY (id)
+);
+
+DROP TABLE IF EXISTS developers_projects CASCADE;
+CREATE TABLE developers_projects
+(
+    developers_id int,
+    projects_id   int,
+    FOREIGN KEY (developers_id) REFERENCES developers (id),
+    FOREIGN KEY (projects_id) REFERENCES projects (id)
 );
 
 DROP TABLE IF EXISTS developers_skills CASCADE;
