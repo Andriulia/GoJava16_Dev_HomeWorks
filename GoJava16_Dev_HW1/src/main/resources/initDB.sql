@@ -3,22 +3,31 @@ DROP type IF EXISTS level CASCADE;
 CREATE TYPE sex AS ENUM ('male', 'female');
 CREATE TYPE level AS ENUM ('junior', 'middle', 'senior');
 
+DROP TABLE IF EXISTS locations CASCADE;
+CREATE TABLE locations
+(
+    id      SERIAL,
+    name    varchar(50),
+    PRIMARY KEY (id)
+);
+
 DROP TABLE IF EXISTS developers CASCADE;
 CREATE TABLE developers
 (
-    id      SERIAL NOT NULL,
+    id      SERIAL,
     name    varchar(50),
     surname varchar(50),
     age     int CHECK (Age >= 10),
-    location    varchar(100),
+    location    int,
     sex     sex,
+    FOREIGN KEY (location) REFERENCES locations (id),
     PRIMARY KEY (id)
 );
 
 DROP TABLE IF EXISTS projects CASCADE;
 CREATE TABLE projects
 (
-    id                         SERIAL NOT NULL,
+    id      SERIAL,
     name                       varchar(255),
     lowerAppropriateSkillLevel level,
     PRIMARY KEY (id)
@@ -27,7 +36,7 @@ CREATE TABLE projects
 DROP TABLE IF EXISTS languages CASCADE;
 CREATE TABLE languages
 (
-    id             SERIAL NOT NULL,
+    id      SERIAL,
     name           varchar(255),
     objectOriented bool,
     PRIMARY KEY (id)
@@ -36,7 +45,7 @@ CREATE TABLE languages
 DROP TABLE IF EXISTS customers CASCADE;
 CREATE TABLE customers
 (
-    id   SERIAL NOT NULL,
+    id      SERIAL,
     name varchar(255),
     city varchar(100),
     PRIMARY KEY (id)
@@ -45,7 +54,7 @@ CREATE TABLE customers
 DROP TABLE IF EXISTS companies CASCADE;
 CREATE TABLE companies
 (
-    id   SERIAL NOT NULL,
+    id      SERIAL,
     name varchar(255),
     city varchar(100),
     PRIMARY KEY (id)
@@ -54,7 +63,7 @@ CREATE TABLE companies
 DROP TABLE IF EXISTS skills CASCADE;
 CREATE TABLE skills
 (
-    id           SERIAL NOT NULL,
+    id      SERIAL,
     languages_id int,
     level        level,
     FOREIGN KEY (languages_id) REFERENCES languages (id),
