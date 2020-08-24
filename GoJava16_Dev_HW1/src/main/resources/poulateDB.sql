@@ -204,7 +204,7 @@ insert into developers_skills
 values (1, 5);
 
 insert into developers_skills
-values (2, 4);
+values (2, 7);
 
 insert into developers_skills
 values (2, 2);
@@ -213,22 +213,55 @@ insert into developers_skills
 values (3, 2);
 
 insert into developers_skills
-values (3, 3);
+values (3, 9);
 
 insert into developers_skills
 values (3, 5);
 
 insert into developers_skills
-values (4, 2);
+values (4, 11);
 
 insert into developers_skills
-values (4, 1);
+values (4, 8);
 
 insert into developers_skills
-values (5, 3);
+values (5, 13);
 
 insert into developers_skills
-values (5, 1);
+values (5, 6);
+
+insert into developers_skills
+values (6, 3);
+
+insert into developers_skills
+values (6, 5);
+
+insert into developers_skills
+values (6, 7);
+
+insert into developers_skills
+values (7, 2);
+
+insert into developers_skills
+values (7, 11);
+
+insert into developers_skills
+values (8, 9);
+
+insert into developers_skills
+values (8, 5);
+
+insert into developers_skills
+values (8, 11);
+
+insert into developers_skills
+values (8, 8);
+
+insert into developers_skills
+values (9, 13);
+
+insert into developers_skills
+values (9, 6);
 
 
 insert into customers_projects
